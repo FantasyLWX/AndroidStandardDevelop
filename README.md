@@ -16,7 +16,7 @@
 
 ### 1 前言
 
-为了利于项目维护以及规范开发，促进成员之间Code Review的效率，故提出以下开发规范，如有更好建议，欢迎到GitHub提issue，原文地址： **[安卓开发规范(updating)][安卓开发规范(updating)]**
+为了利于项目维护以及规范开发，促进成员之间Code Review的效率，故提出以下开发规范，如有更好建议，欢迎到GitHub提issue，原文地址：**[安卓开发规范(updating)][安卓开发规范(updating)]**
 
 
 ### 2 AS规范
@@ -27,7 +27,7 @@
 2. 编码格式统一为**UTF-8**；
 3. 编辑完`.java`、 `.xml`等文件后一定要**格式化**（基本格式方面使用 AS 默认模板即可）；
 4. 删除多余的import，减少警告出现，可利用AS的`Optimize Imports`(Settings → Keymap → Optimize Imports)快捷键；
-5. AS常用开发插件可以参考这里～**[AS常用开发插件][AS常用开发插件]**
+5. Android开发者工具可以参考这里～ **[Android开发者工具][Android开发者工具]**
 
 
 ### 3 命名规范
@@ -38,7 +38,7 @@
 
 #### 3.1 包名
 
-包名全部小写，连续的单词只是简单地连接起来，不使用下划线，采用反域名命名规则，全部使用小写字母。一级包名是顶级域名，通常为`com`,`edu`,`gov`,`net`,`org`等，二级包名为公司名，三级包名根据应用进行命名，后面就是对包名的划分了，关于包名的划分，推荐使用按功能分，一开始我们也是按照层去分包的，很坑爹。按照功能分可能你不是很好区分在哪个功能中，不过也比你按照层区分要好找很多。具体可以参考这篇博文～**[Package by features, not layers][Package by features, not layers]**，当然，我们大谷歌也有相应的sample～**[iosched][iosched]**，其结构如下所示，很值得学习。
+包名全部小写，连续的单词只是简单地连接起来，不使用下划线，采用反域名命名规则，全部使用小写字母。一级包名是顶级域名，通常为`com`,`edu`,`gov`,`net`,`org`等，二级包名为公司名，三级包名根据应用进行命名，后面就是对包名的划分了，关于包名的划分，推荐使用按功能分，一开始我们也是按照层去分包的，很坑爹。按照功能分可能你不是很好区分在哪个功能中，不过也比你按照层区分要好找很多。具体可以参考这篇博文～ **[Package by features, not layers][Package by features, not layers]**，当然，我们大谷歌也有相应的sample～ **[iosched][iosched]**，其结构如下所示，很值得学习。
 
 ```
 java
@@ -487,7 +487,7 @@ public class MyClass {
 2. 以类命名方式(参考[3.2 类名](#32-类名))，后面加个大写的`T`(如：`RequestT`, `FooBarT`)。
 
 
-更多还可参考～**[阿里巴巴Java开发手册][阿里巴巴Java开发手册]**
+更多还可参考～ **[阿里巴巴Java开发手册][阿里巴巴Java开发手册]**
 
 
 ### 4 资源文件规范
@@ -668,28 +668,28 @@ public class MyClass {
 <resources>
 
     <!-- font sizes -->
-    <dimen name="font_larger">22sp</dimen>
-    <dimen name="font_large">18sp</dimen>
-    <dimen name="font_normal">15sp</dimen>
-    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_22">22sp</dimen>
+    <dimen name="font_18">18sp</dimen>
+    <dimen name="font_15">15sp</dimen>
+    <dimen name="font_12">12sp</dimen>
 
     <!-- typical spacing between two views -->
-    <dimen name="spacing_huge">40dp</dimen>
-    <dimen name="spacing_large">24dp</dimen>
-    <dimen name="spacing_normal">14dp</dimen>
-    <dimen name="spacing_small">10dp</dimen>
-    <dimen name="spacing_tiny">4dp</dimen>
+    <dimen name="spacing_40">40dp</dimen>
+    <dimen name="spacing_24">24dp</dimen>
+    <dimen name="spacing_14">14dp</dimen>
+    <dimen name="spacing_10">10dp</dimen>
+    <dimen name="spacing_4">4dp</dimen>
 
     <!-- typical sizes of views -->
-    <dimen name="button_height_tall">60dp</dimen>
-    <dimen name="button_height_normal">40dp</dimen>
-    <dimen name="button_height_short">32dp</dimen>
+    <dimen name="button_height_60">60dp</dimen>
+    <dimen name="button_height_40">40dp</dimen>
+    <dimen name="button_height_32">32dp</dimen>
 
 </resources>
 
 ```
 
-布局时在写`margins`和`paddings`时，你应该使用`spacing_xxxx`尺寸格式来布局，而不是像对待`string`字符串一样直接写值。 这样写会非常有感觉，会使组织和改变风格或布局是非常容易。
+布局时在写`margins`和`paddings`时，你应该使用`spacing_xx`尺寸格式来布局，而不是像对待`string`字符串一样直接写值，像这样规范的尺寸很容易修改或重构，会使应用所有用到的尺寸一目了然。 这样写会非常有感觉，会使组织和改变风格或布局是非常容易。
 
 
 ##### 4.4.3 strings.xml
@@ -740,19 +740,19 @@ public class MyClass {
 使用`AndroidStudio`的插件`ButterKnife Zelezny`，生成注解非常方便，原生的话可以使用`Android Code Generator`插件。
 
 
-如果想对资源文件进行分包可以参考我这篇文章～**[Android Studio下对资源进行分包][Android Studio下对资源进行分包]**
+如果想对资源文件进行分包可以参考我这篇文章～ **[Android Studio下对资源进行分包][Android Studio下对资源进行分包]**
 
 
 ### 5 版本统一规范
 
 Android开发存在着众多版本的不同，比如`compileSdkVersion`、`minSdkVersion`、`targetSdkVersion`以及项目中依赖第三方库的版本，不同的module及不同的开发人员都有不同的版本，所以需要一个统一版本规范的文件。
 
-具体可以参考我写的这篇博文～**[Android开发之版本统一规范][Android开发之版本统一规范]**
+具体可以参考我写的这篇博文～ **[Android开发之版本统一规范][Android开发之版本统一规范]**
 
 
 ### 6 第三方库规范
 
-别再闭门造车了，用用最新最火的技术吧，安利一波～**[Android 流行框架查速表][Android 流行框架查速表]**，顺便带上自己的干货～**[Android开发人员不得不收集的代码][Android开发人员不得不收集的代码]**
+别再闭门造车了，用用最新最火的技术吧，安利一波～ **[Android 流行框架查速表][Android 流行框架查速表]**，顺便带上自己的干货～ **[Android开发人员不得不收集的代码][Android开发人员不得不收集的代码]**
 
 希望Team能用时下较新的技术，对开源库的选取，一般都需要选择比较稳定的版本，作者在维护的项目，要考虑作者对issue的解决，以及开发者的知名度等各方面。选取之后，一定的封装是必要的。
 
@@ -800,7 +800,7 @@ public class WelcomeActivity {
  *     author : ${USER}
  *     e-mail : xxx@xx
  *     time   : ${YEAR}/${MONTH}/${DAY}
- *     desc   : 
+ *     desc   :
  *     version: 1.0
  * </pre>
  */
@@ -869,19 +869,54 @@ AS已帮你集成了一些注释模板，我们只需要直接使用即可，在
 ### 10 其他的一些规范
 
 1. 合理布局，有效运用`<merge>`、`<ViewStub>`、`<include>`标签；
+
 2. `Activity`和`Fragment`里面有许多重复的操作以及操作步骤，所以我们都需要提供一个`BaseActivity`和`BaseFragment`，让所有的`Activity`和`Fragment`都继承这个基类。
-3. 方法基本上都按照调用的先后顺序在各自区块中排列；
-4. 相关功能作为小区块放在一起（或者封装掉）；
-5. 当一个类有多个构造函数，或是多个同名方法，这些函数/方法应该按顺序出现在一起，中间不要放进其它函数/方法；
-6. 数据提供统一的入口。无论是在 MVP、MVC 还是 MVVM 中，提供一个统一的数据入口，都可以让代码变得更加易于维护。比如可使用一个`DataManager`，把 `http`、`preference`、`eventpost`、`database` 都放在`DataManger`里面进行操作，我们只需要与`DataManger`打交道；
-7. 多用组合, 少用继承；
-8. 提取方法, 去除重复代码。对于必要的工具类抽取也很重要，这在以后的项目中是可以重用的。
-9. 可引入 Dagger2 减少模块之间的耦合性。Dagger2 是一个依赖注入框架，使用代码自动生成创建依赖关系需要的代码。减少很多模板化的代码，更易于测试，降低耦合，创建可复用可互换的模块；
-10. 项目引入`RxJava` + `RxAndroid`这些响应式编程，可以极大的减少逻辑代码；
-11. 通过引入事件总线，如：`EventBus`、`AndroidEventBus`、`RxBus`，它允许我们在`DataLayer`中发送事件，以便`ViewLayer`中的多个组件都能够订阅到这些事件，减少回调；
-12. 尽可能使用局部变量；
-13. 及时关闭流；
-14. 尽量减少对变量的重复计算；
+
+3. 启动`Activity`的话建议使用AS自带的模板，输入`starter`即可，如下所示：
+
+  ``` java
+  public static void start(Context context, String data) {
+      Intent starter = new Intent(context, MainActivity.class);
+      starter.putExtra("data", data);
+      context.startActivity(starter);
+  }
+  ```
+
+  同理，启动`Fragment`输入`newInstance`即可，如下所示：
+
+  ``` java
+  public static MainFragment newInstance(String data) {
+      Bundle args = new Bundle();
+      args.putString("data", data);
+      MainFragment fragment = new MainFragment();
+      fragment.setArguments(args);
+      return fragment;
+  }
+  ```
+
+4. 方法基本上都按照调用的先后顺序在各自区块中排列；
+
+5. 相关功能作为小区块放在一起（或者封装掉）；
+
+6. 当一个类有多个构造函数，或是多个同名方法，这些函数/方法应该按顺序出现在一起，中间不要放进其它函数/方法；
+
+7. 数据提供统一的入口。无论是在 MVP、MVC 还是 MVVM 中，提供一个统一的数据入口，都可以让代码变得更加易于维护。比如可使用一个`DataManager`，把 `http`、`preference`、`eventpost`、`database` 都放在`DataManger`里面进行操作，我们只需要与`DataManger`打交道；
+
+8. 多用组合, 少用继承；
+
+9. 提取方法, 去除重复代码。对于必要的工具类抽取也很重要，这在以后的项目中是可以重用的。
+
+10. 可引入 Dagger2 减少模块之间的耦合性。Dagger2 是一个依赖注入框架，使用代码自动生成创建依赖关系需要的代码。减少很多模板化的代码，更易于测试，降低耦合，创建可复用可互换的模块；
+
+11. 项目引入`RxJava` + `RxAndroid`这些响应式编程，可以极大的减少逻辑代码；
+
+12. 通过引入事件总线，如：`EventBus`、`AndroidEventBus`、`RxBus`，它允许我们在`DataLayer`中发送事件，以便`ViewLayer`中的多个组件都能够订阅到这些事件，减少回调；
+
+13. 尽可能使用局部变量；
+
+14. 及时关闭流；
+
+15. 尽量减少对变量的重复计算；
 
   如下面的操作：
 
@@ -894,12 +929,12 @@ AS已帮你集成了一些注释模板，我们只需要直接使用即可，在
   建议替换为：
 
   ``` java
-  for (int i = 0, int length = list.size(); i < length; i++) {
+  for (int i = 0, len = list.size(); i < len; i++) {
       ...
   }
   ```
 
-15. 尽量采用懒加载的策略，即在需要的时候才创建；
+16. 尽量采用懒加载的策略，即在需要的时候才创建；
 
   例如：
 
@@ -919,10 +954,13 @@ AS已帮你集成了一些注释模板，我们只需要直接使用即可，在
   }
   ```
 
-16. 不要在循环中使用try…catch…，应该把其放在最外层；
-17. 使用带缓冲的输入输出流进行IO操作；
-18. 尽量使用HashMap、ArrayList、StringBuilder，除非线程安全需要，否则不推荐使用Hashtable、Vector、StringBuffer，后三者由于使用同步机制而导致了性能开销；
-19. 尽量在合适的场合使用单例；
+17. 不要在循环中使用try…catch…，应该把其放在最外层；
+
+18. 使用带缓冲的输入输出流进行IO操作；
+
+19. 尽量使用HashMap、ArrayList、StringBuilder，除非线程安全需要，否则不推荐使用Hashtable、Vector、StringBuffer，后三者由于使用同步机制而导致了性能开销；
+
+20. 尽量在合适的场合使用单例；
 
   使用单例可以减轻加载的负担、缩短加载的时间、提高加载的效率，但并不是所有地方都适用于单例，简单来说，单例主要适用于以下三个方面：
 
@@ -932,9 +970,11 @@ AS已帮你集成了一些注释模板，我们只需要直接使用即可，在
 
   （3）控制数据的共享，在不建立直接关联的条件下，让多个不相关的进程或线程之间实现通信
 
-20. 把一个基本数据类型转为字符串，`基本数据类型.toString()`是最快的方式、`String.valueOf(数据)`次之、`数据 + ""`最慢；
-21. 使用AS自带的Lint来优化代码结构（什么，你不会？右键module、目录或者文件，选择Analyze → Inspect Code）；
-22. 最后不要忘了内存泄漏的检测；
+21. 把一个基本数据类型转为字符串，`基本数据类型.toString()`是最快的方式、`String.valueOf(数据)`次之、`数据 + ""`最慢；
+
+22. 使用AS自带的Lint来优化代码结构（什么，你不会？右键module、目录或者文件，选择Analyze → Inspect Code）；
+
+23. 最后不要忘了内存泄漏的检测；
 
 ---
 
@@ -1033,7 +1073,7 @@ AS已帮你集成了一些注释模板，我们只需要直接使用即可，在
 [Package by features, not layers]: https://medium.com/@cesarmcferreira/package-by-features-not-layers-2d076df1964d#.mp782izhh
 [iosched]: https://github.com/google/iosched/tree/master/android/src/main/java/com/google/samples/apps/iosched
 [安卓开发规范(updating)]: https://github.com/Blankj/AndroidStandardDevelop
-[AS常用开发插件]: http://www.jianshu.com/p/c76b0d8a642d
+[Android开发者工具]: http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2017/0526/7973.html
 [Android Studio下对资源进行分包]: http://www.jianshu.com/p/8e893581b9c7
 [Android开发之版本统一规范]: http://www.jianshu.com/p/db6ef4cfa5d1
 [Android 流行框架查速表]: http://www.ctolib.com/cheatsheets-Android-ch.html
